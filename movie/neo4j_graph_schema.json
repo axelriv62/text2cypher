@@ -1,0 +1,166 @@
+{
+    "node_props": {
+        "Genre": [
+            {
+                "property": "name",
+                "type": "STRING"
+            }
+        ],
+        "Movie": [
+            {
+                "property": "released",
+                "type": "STRING"
+            },
+            {
+                "property": "budget",
+                "type": "FLOAT"
+            },
+            {
+                "property": "url",
+                "type": "STRING"
+            },
+            {
+                "property": "title",
+                "type": "STRING"
+            },
+            {
+                "property": "imdbRating",
+                "type": "FLOAT"
+            },
+            {
+                "property": "poster",
+                "type": "STRING"
+            },
+            {
+                "property": "revenue",
+                "type": "INTEGER"
+            },
+            {
+                "property": "tmdbId",
+                "type": "INTEGER"
+            },
+            {
+                "property": "plot",
+                "type": "STRING"
+            },
+            {
+                "property": "movieId",
+                "type": "INTEGER"
+            }
+        ],
+        "User": [
+            {
+                "property": "userId",
+                "type": "INTEGER"
+            },
+            {
+                "property": "name",
+                "type": "STRING"
+            }
+        ],
+        "Actor": [
+            {
+                "property": "name",
+                "type": "STRING"
+            },
+            {
+                "property": "tmdbId",
+                "type": "INTEGER"
+            },
+            {
+                "property": "born",
+                "type": "STRING"
+            },
+            {
+                "property": "died",
+                "type": "FLOAT"
+            },
+            {
+                "property": "bornIn",
+                "type": "STRING"
+            },
+            {
+                "property": "imdbId",
+                "type": "INTEGER"
+            },
+            {
+                "property": "url",
+                "type": "STRING"
+            }
+        ],
+        "Director": [
+            {
+                "property": "bio",
+                "type": "STRING"
+            },
+            {
+                "property": "died",
+                "type": "STRING"
+            },
+            {
+                "property": "name",
+                "type": "STRING"
+            },
+            {
+                "property": "bornIn",
+                "type": "STRING"
+            },
+            {
+                "property": "url",
+                "type": "STRING"
+            },
+            {
+                "property": "poster",
+                "type": "STRING"
+            },
+            {
+                "property": "imdbId",
+                "type": "INTEGER"
+            },
+            {
+                "property": "born",
+                "type": "STRING"
+            }
+        ]
+    },
+    "rel_props": {
+        "RATED": [
+            {
+                "property": "rating",
+                "type": "FLOAT"
+            }
+        ],
+        "ACTED_IN": [
+            {
+                "property": "role",
+                "type": "STRING"
+            }
+        ]
+    },
+    "relationships": [
+        {
+            "start": "Movie",
+            "type": "IN_GENRE",
+            "end": "Genre"
+        },
+        {
+            "start": "User",
+            "type": "RATED",
+            "end": "Movie"
+        },
+        {
+            "start": "Actor",
+            "type": "ACTED_IN",
+            "end": "Movie"
+        },
+        {
+            "start": "Director",
+            "type": "DIRECTED",
+            "end": "Movie"
+        }
+    ],
+    "metadata": {
+        "constraint": [],
+        "index": []
+    }
+}

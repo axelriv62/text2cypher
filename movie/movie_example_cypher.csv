@@ -1,0 +1,19 @@
+"question","cypher"
+"Which actors in movies have ratings above 4?","
+MATCH (a:Actor)-[:ACTED_IN]->(m:Movie)<-[r:RATED]-(u:User) 
+WHERE r.rating > 4
+RETURN DISTINCT a.name
+    "
+"What are the 5 most overrated movies?","MATCH (m:Movie)-[r:RATED]->() with m, AVG(r.rating) AS avg_rating 
+ORDER BY avg_rating DESC LIMIT 5
+RETURN m, avg_rating; 
+    "
+"List the films that have at least two directors, and optionally the names of the people who gave their opinions on these films.","MATCH (m:Movie)
+WHERE count{(m)-[:DIRECTED]->()} >= 2
+OPTIONAL MATCH (m)←[r:RATED]-(u:User)
+RETURN m, COLLECT(u.name) AS reviewers; 
+    "
+"list the number of Tom Hanks' co-actors","MATCH (a:Actor {name: ""Tom Hanks""})-[:ACTED_IN]->(m:Movie)<-[:ACTED_IN]-(coactor)
+RETURN COUNT(DISTINCT coactor); "
+"List all Tom Hanks’ movies","MATCH (a:Actor {name: ""Tom Hanks""})-[:ACTED_IN]->(m:Movie)
+RETURN m.title;"
