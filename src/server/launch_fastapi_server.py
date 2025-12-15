@@ -1,5 +1,5 @@
 from fastapi import FastAPI
-from src.langchain.components.agent_correction import movie_agent_executor
+from src.langchain.components.agent import movie_agent_executor
 from src.server.movie_rag_query import MovieQueryInput, MovieQueryOutput
 from src.langchain.tests.async_utils import async_retry
 

@@ -15,15 +15,10 @@ with st.sidebar:
     )
 
     st.header("Example Questions")
-    st.markdown("- What is the most recent movie?")
-    st.markdown("- What is the average rating value for the movie Sounder?")
-    st.markdown(
-        """- What is the overall sentiment analysis regarding the acting of Robert de Niro?
-        Keep it as one word""")
-    st.markdown("- Which movies are not reviewed by Robert Brooks?")
-    st.markdown("- What are the co-actors of Robert de Niro, grouped by movie?")
-
-
+    st.markdown("- Summarize what people liked and disliked about the movie Stanley & Iris.")
+    st.markdown("- Give me the most recent movie.")
+    st.markdown("- Tell me the similarity between Sean Mendez and David Malone.")
+    st.markdown("- Give me recommandations on Peter Sollett's movies.")
 
 st.title("Movie System Chatbot")
 st.info(
