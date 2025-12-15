@@ -7,6 +7,8 @@ from langchain_classic.agents import AgentExecutor
 from langchain.tools import tool
 import src.tools.tool1_exploration_chroma as exploration_chroma
 import src.tools.tool2_exploration_neo4j as exploration_neo4j
+import src.tools.tool3_similitarity as similarity_users
+import src.tools.tool4_recommandation as recommandation_tool
 
 agent_chat_model = ChatOllama(model=consts.OLLAMA_MODEL, base_url=consts.OLLAMA_BASE_URL, temperature=0)
 
@@ -34,21 +36,36 @@ def explore_movies_database(question: str) -> str:
         return {"result": result}
     return {"result": "Unable to query movies database"}
 
-"""
+
 @tool
-def tool3(question: str) -> str:
-    result = tool3.similitarity_chain.invoke({"question": question})
+def similarity_users(concept: str) -> str:
+    """
+    Use this tool to compute similarity between two users based on their movie preferences.
+    The input should be two user names separated by a comma.
+    Example input: "User1, User2"
+    The output is a similarity score between 0 and 1.
+    0 means no similarity, 1 means identical preferences.
+    Answer in French.
+    """
+    result = similarity_users.get_similarity(concept)
     return {"result": result}
 
 @tool
-def tool4(question: str) -> str:
-    result = tool4.recommandation_chain.invoke({"question": question})
+def recommendation(concept: str) -> str:
+    """
+    Use this tool to get movie recommendations based on a concept (genre, actor, or director).
+    The input is the name of the concept.
+    The output is a list of recommended movies with details.
+    Answer in French.
+    """
+    result = recommandation_tool.get_recommendation(concept)
     return {"result": result}
-"""
 
 agent_tools = [
     explore_movie_reviews,
     explore_movies_database,
+    similarity_users,
+    recommendation,
 ]
 
 agent_prompt = ChatPromptTemplate.from_messages(
