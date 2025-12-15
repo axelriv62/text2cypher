@@ -1,3 +1,4 @@
+requests
 ollama==0.6.0
 psycopg2-binary==2.9.11
 langchain==1.0.2
@@ -18,3 +19,5 @@ pandas
 langchain_neo4j
 streamlit
 fastapi[standard]
+pytest
+pydantic
