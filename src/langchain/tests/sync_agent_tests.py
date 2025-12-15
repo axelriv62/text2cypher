@@ -30,5 +30,6 @@ end_time = time.perf_counter()
 
 print(f"Run time: {end_time - start_time} seconds")
 for i in range(len(questions)):
+    print("-----------------------------------------------------------------")
     print(f"Question {i}: {questions[i]}")
     print(f"Response {i}: {json.loads(outputs[i].content)['output']}")

@@ -1,4 +1,4 @@
 .idea
 .venv
-src/user_consts.py
+out/
 src/user_consts.py
