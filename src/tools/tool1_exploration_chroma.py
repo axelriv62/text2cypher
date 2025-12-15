@@ -13,10 +13,11 @@ from langchain_core.prompts import (
 )
 from langchain_core.output_parsers import StrOutputParser
 from operator import itemgetter
+from src.user_consts import IN_FOLDER
 
 import src.user_consts as consts
 
-REVIEWS_CSV_PATH = os.path.join("../../in/movie/movie_reviews.csv")
+REVIEWS_CSV_PATH = os.path.join(IN_FOLDER, "movie/movie_reviews.csv")
 REVIEWS_CHROMA_PATH = os.path.join(consts.OUT_FOLDER, "chroma_movie_reviews")
 
 review_template_str = """You are an assistant that explores and summarizes movie reviews.
